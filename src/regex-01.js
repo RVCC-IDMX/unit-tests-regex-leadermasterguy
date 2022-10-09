@@ -18,7 +18,7 @@
  * ? example: testString('abc', /def/) // false
  */
 function testString(str, re) {
-  // write your code here & return value
+  return re.test(str);
 }
 
 /**
@@ -32,10 +32,11 @@ function testString(str, re) {
  * ? must create a regular expression using the constructor function new RegExp()
  * ? https://mzl.la/3lWGpRa
  * ? hint: create a string with the join array method and the | character as the separator
- * ? The '|' character acts like the OR operator 
+ * ? The '|' character acts like the OR operator
  */
 function testStringOr(str, arr) {
-  // write your code here & return value
+  const re = new RegExp(arr.join('|'));
+  return re.test(str);
 }
 
 /**
@@ -49,7 +50,8 @@ function testStringOr(str, arr) {
  * ? must create a regular expression using the constructor function new RegExp()
  */
 function testStringIgnoreCase(str, match) {
-  // write your code here & return value
+  const re = new RegExp(`${match}`, 'i');
+  return re.test(str);
 }
 
 /**
@@ -62,7 +64,7 @@ function testStringIgnoreCase(str, match) {
  * ? example: countVowels('the boy is lost in the woods, HELP US!') => 10
  */
 function countVowels(str) {
-  // write your code here & return value
+  return str.match(/a|e|i|o|u/gi).length;
 }
 
 /**
@@ -76,7 +78,7 @@ function countVowels(str) {
  * ? must use the replace() string method - https://mzl.la/2Zsw4F6
  */
 function replaceVowels(str, ch) {
-  // write your code here & return value
+  return str.replace(/(a|e|i|o|u)+/gi, ch);
 }
 
 /**
@@ -89,7 +91,8 @@ function replaceVowels(str, ch) {
  * ? must create a regular expression using the constructor function new RegExp()
  */
 function isPrefix(str, prefix) {
-  // write your code here & return value
+  const re = new RegExp(`^${prefix}`);
+  return re.test(str);
 }
 
 module.exports = {
